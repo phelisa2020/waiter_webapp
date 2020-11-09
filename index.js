@@ -1,0 +1,1 @@
+const shop = require('./waiter');
