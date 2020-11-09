@@ -1,0 +1,51 @@
+body {
+	font-family: arial;
+	color: black;
+	background-color: pink;
+	font-size: 27px
+  }
+  .btn{
+	  margin: 00.5em;
+	  width: 10em;
+	  padding: 00.5em;
+	  background-color: gold;
+  }
+
+.container {
+	margin: auto;
+	width: 80%;
+}
+  
+  input[type="text"] {
+	width: 15em;
+	padding: 0.5em;
+  }
+  
+  input[type="submit"] {
+	margin: 0.5em;
+	width: 10em;
+	padding: 0.5em;
+	background-color: gold;
+  }
+  
+  .msg {
+	margin-bottom: 0.75em;
+  }
+ 
+  .message {
+	padding: 0.5em;
+	border: 1px solid;
+	height: 2em;
+	width: 20em;
+	background-color: white;
+	color: black;
+	margin-bottom: 1em;
+	border-radius: 0.25em;
+  }
+  .counter{
+  	font-size : 2em;
+  }
+  .info{
+  	color: red;
+  	margin-bottom: 1em;
+  }

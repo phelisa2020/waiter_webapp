@@ -2,42 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>waiter</title>
+	<link rel="stylesheet" href="css/waiter.css">
 </head>
-
 <body>
-    <div class="container bg-dark text-primary p-5">
-    <div class="d-flex justify-content-center">
-        <h1>Waiter Availability</h1>
-    </div>
-    <div class="d-flex justify-content-center p-4">
-       <form action="/waiter" method="post">
-        <label for="waiterName">Name: <input type="text" placeholder="enter your name" name="waiterName"> </label>
-    </div>
-    <div class="row d-flex justify-content-center ">
-        <label for="mon" class="pl-5 px-3 ">Monday</label><input type="checkbox" name="" id="" class="checkbox">
-        <label for="tue" class="pl-5 px-3">Tuesday</label><input type="checkbox" name="" id="" class="">
-        <label for="wed" class="pl-5 px-3">Wednesday</label><input type="checkbox" name="" id="" class="">
-        <label for="thurs" class="pl-5 px-3">Thursday</label><input type="checkbox" name="" id="" class="">
-        <label for="fri" class="pl-5 px-3">Friday</label><input type="checkbox" name="" id="" class="">
+    <div class="container">
+    <h1><u>Waiter Availability</u></h1>
+			name
 
-    </div>
+       <form action="/waiter" method="post">
+    <input type="text" name="waiterName" class="nameEntered" placeholder="enter your name">
+			<br><br>
+            <div class='shifts'>
+				<input type='checkbox' name='day' class='day' value="Monday">
+				<span class='label-body'>Monday</span>
+				<input type='checkbox' name='day' class='day' value="Tuesday">
+				<span class='label-body'>Tuesday</span>
+				<input type='checkbox' name='day' class='day' value="Wednesday">
+				<span class='label-body'>Wednesday</span>
+                <input type='checkbox' name='day' class='day' value="Thursday">
+				<span class='label-body'>Thursday</span>
+                <input type='checkbox' name='day' class='day' value="Friday">
+				<span class='label-body'>Friday</span>
+                <input type='checkbox' name='day' class='day' value="Saturday">
+				<span class='label-body'>Saturday</span>
+                <input type='checkbox' name='day' class='day' value="Sunday">
+				<span class='label-body'>Sunday</span>
+
+				<br><br>
+
+			</div>
     </form>
-    <div class="row mt-4 ">
-        <form action="/" method="post"></form>
-            <div class=" col-4  " >
-            <input type="submit" class="btn btn-primary" value="Update shift">
-        </div>
-        <div class="col-sm  ">
-            <input type="submit" class="btn btn-primary" value="Add shift">
+    <div class='updateBtn'>
+				<input type='submit' class='btn' value='Update shift'>
+				{{!-- <a href="/delete"><button class="btn"type= 'button'>reset</button></a> --}}
+	</div>
+    
+        <div class="addBtn ">
+            <input type="submit" class="btn" value="Add shift">
         </div>
    
-    </div>
-    </div>
+    
+   
     </div>
 </body>
 
