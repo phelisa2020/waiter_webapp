@@ -1,9 +1,9 @@
-const factoryWater = require('./waiter');
+// const factoryWater = require('./waiter');
 let express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const pg = require("pg");
-const Pool = pg.Pool;
+// const pg = require("pg");
+// const Pool = pg.Pool;
 
 
 let app = express();
@@ -16,16 +16,16 @@ app.use(bodyParser.json());
 app.engine('handlebars', exphbs({ layoutsDir: './views/layouts' }));
 app.set('view engine', 'handlebars');
 
-//` which db connection to use
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/my_waiter';
+// //` which db connection to use
+// const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/my_waiter';
 
 
-const pool = new Pool({
-  connectionString
+// const pool = new Pool({
+//   connectionString
  
-});
+// });
 
-const waiters = factoryWater(pool)
+// const waiters = factoryWater(pool)
 
 app.get("/", function(req, res){
     res.render("index");
