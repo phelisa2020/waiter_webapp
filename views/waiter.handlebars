@@ -1,27 +1,32 @@
-<div class= 'row'>
-<h1>waiter availability: </h1>
- <form action="/waiter" method="post">
-    <input type="text" name="waiterName" class="nameEntered" placeholder="enter your name">
-			<br><br>
-            <div class='shifts'>
-				<input type='checkbox' name='day' class='day' value="Monday">
-				<span class='label-body'>Monday</span>
-				<input type='checkbox' name='day' class='day' value="Tuesday">
-				<span class='label-body'>Tuesday</span>
-				<input type='checkbox' name='day' class='day' value="Wednesday">
-				<span class='label-body'>Wednesday</span>
-                <input type='checkbox' name='day' class='day' value="Thursday">
-				<span class='label-body'>Thursday</span>
-                <input type='checkbox' name='day' class='day' value="Friday">
-				<span class='label-body'>Friday</span>
-                <input type='checkbox' name='day' class='day' value="Saturday">
-				<span class='label-body'>Saturday</span>
-                <input type='checkbox' name='day' class='day' value="Sunday">
-				<span class='label-body'>Sunday</span>
+ 
+<!DOCTYPE html>
+<html lang="en">
 
-				<br><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-			</div>
-    </form>
+<body>
+    <div class="container ">
+       
+                <h1 class="text-light">PHELISA SHOP SPAZA</h1>
+                      
+            <form action="/waiters/:username" method="POST">
+             
+     
+                {{#each weekday}}
+                       <input type='checkbox' name='day' class='days' value="{{this.days}}">
+				    <span class='label-body'>{{this.days}}</span>
 
-	</div>
+{{/each}}
+<button type="submit" class="btn" >submit</button>
+<button><a href="/">back</a></button>
+</form>
+ </div>
+    
+</body>
+
+</html>
+
