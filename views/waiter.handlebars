@@ -1,32 +1,28 @@
- 
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
+    <h1>{{this.names}}hello</h1>
+    <br>
+    <h3>Days you want to work on</h3>
+    <br>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
-<body>
-    <div class="container ">
-       
-                <h1 class="text-light">PHELISA SHOP SPAZA</h1>
-                      
-            <form action="/waiters/:username" method="POST">
-             
-     
-                {{#each weekday}}
-                       <input type='checkbox' name='day' class='days' value="{{this.days}}">
-				    <span class='label-body'>{{this.days}}</span>
+    <form action="/waiters/{{username}}" method="POST">
 
-{{/each}}
-<button type="submit" class="btn" >submit</button>
-<button><a href="/">back</a></button>
-</form>
- </div>
-    
-</body>
 
-</html>
+        {{#each weekday}}
+        <input type='checkbox' name='day' class='days' value="{{this.days}}">
+        <span class='label-body'>{{this.days}}</span>
 
+        {{/each}}
+        <button type="submit" class="btn btn-light btn mt-3 " name="submitShifts">submit shifts</button>
+
+    </form>
+    <div class="error">
+        <h3>
+            {{messages.error}}
+        </h3>
+    </div>
+    <button><a href="/">back</a></button>
+
+
+
+</div>

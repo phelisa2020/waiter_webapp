@@ -10,6 +10,9 @@ module.exports = function waiter(pool){
      }
      
      }
+     
+
+  
      async function waiter(name){
         var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
 		const SQLcheck = "select id from names where names = $1";
@@ -30,7 +33,24 @@ module.exports = function waiter(pool){
     async function getDays() {
         var list = await pool.query("select * from days")
         return list.rows
-	}
+    }
+   
+    // async function waitersDays(x) {
+    //     const lists = await pool.query(`select weekdays_name from shifts where waiters_name = $1`, [x])
+    //     var lst = lists.rows
+
+    //     var dai = await pool.query(`select * from weekdays`)
+    //     var day = dai.rows;
+
+    //     day.forEach(allDays => {
+    //         lst.forEach(WaiterDays => {
+    //             if (WaiterDays.weekdays_name === allDays.weekdays) {
+    //                 allDays.state="checked"
+    //             }
+    //         })
+    //     })
+    //      return day
+    // }
 
     async function clear() {
 		var reset = await pool.query("delete from days_availability");

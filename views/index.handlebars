@@ -1,26 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-    <h3>Welcome</h3>
-    <form action="/waiters/:username"  method="GET">
-    <input type="text" name="waiterName" class="nameEntered" placeholder="enter your name"></input>
-    <button type="submit" class="btn" value="Add names">ADD</button>
-
+<div class="container">
+    
+    Waiter Availability
+     <br>
+      <br>
+    <form action="/" method="post">
+        <span>name</span>
+        <input type="text" name="name" class="names"></input>
+        <button type="submit">Add</button>
     </form>
-
-
-
- {{!-- <h2><ul><a  href="/waiters/" class="text-dark"><button class="btn btn-light">Employee</button></a></ul></h2>
-<h2> <ul><a href="/days" class="text-dark"><button class="btn btn-light">Admin</button></a></ul></h2> --}}
-
-
-</body>
-
-</html>
-
+    <br>
+    <br>
+    <div>
+        <button><a href="/waiters/:username">Waiters</a></button>
+       
+    </div>
+</div>
