@@ -2,7 +2,9 @@ body {
 	font-family: arial;
 	color: black;
 	background-color: pink;
-	font-size: 27px
+	font-size: 27px;
+	
+
   }
   .btn{
 	  margin: 00.5em;
@@ -10,10 +12,17 @@ body {
 	  padding: 00.5em;
 	  background-color: gold;
   }
+  .img{
+	background-image: url(../images/img.jpeg);
+	height : 300px;
+	width: 300px;
+}
 
 .container {
 	margin: auto;
 	width: 80%;
+	
+
 }
   
   input[type="text"] {
