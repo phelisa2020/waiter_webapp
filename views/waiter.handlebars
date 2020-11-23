@@ -11,30 +11,28 @@
 <body>
 	
 <div class="container">
-    <h1>{{this.names}}hello</h1>
-    <br>
-    <h3>Days you want to work on</h3>
-    <br>
+    <h1>{{this.username}}</h1>
+    
+    <h3>Please select days you want to work on</h3>
+   
 
 
     <form action="/waiters/{{username}}" method="POST">
 
-
         {{#each weekday}}
+        {{!-- looping my days from the database --}}
         <input type='checkbox' name='day' class='days' value="{{this.days}}">
-        <span class='label-body'>{{this.days}}</span>
+        <span>{{this.days}}</span>
 
         {{/each}}
-        <button type="submit" class="btn btn-light btn mt-3 " name="submitShifts">submit shifts</button>
-
+         <input type="submit" class="btn" value="Update Days">
     </form>
     <div class="error">
-        <h3>
-            {{messages.error}}
-        </h3>
+        <h3>{{messages.error}}</h3>
     </div>
-    <button><a href="/">back</a></button>
 
-
+    <div class="pass">
+        <h3>{{messages.pass}}</h3>
+    </div>
 
 </div>

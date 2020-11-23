@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>greetings</title>
+    <link rel="stylesheet" href="css/waiter.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <h3>SCHEDULE' S</h3>
+
+        {{!-- <form action="/days" method="POST"> --}}
+        <table>
+            <thead>
+                <tr>
+                    {{#each weekdays}}
+                    <th>{{this.days}}</th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{#each weekdays}}
+                    <td>
+                        {{#each waiter}}
+                    <th>{{this.names}}</th>
+                    {{/each}}
+                    </td>
+                    {{/each}}
+                </tr>
+            </tbody>
+            {{!-- </form> --}}
+
+
+    </div>

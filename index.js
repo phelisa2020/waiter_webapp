@@ -39,9 +39,13 @@ app.use(session({
 app.use(flash());
 
 app.get('/', function (req, res) {
+  const username = req.params.username;
+
   req.flash('info', 'Welcome');
   res.render('index', {
-    title: 'Home'
+    title: 'Home',
+    username: username,
+
   })
 });
 app.get('/addFlash', function (req, res) {
@@ -52,10 +56,14 @@ app.get('/addFlash', function (req, res) {
 
 app.get("/waiters/:username", async function (req, res) {
   const username = req.params.username;
-  const weekday = await waiterRoutes.getDays()
-  console.log(weekday)
+  const weekday = await waiterRoutes.waiter(username)
+  //console.log(weekday)
+  var daysShift =await waiterRoutes.getDays()
   res.render('waiter', {
-    weekday: weekday
+    username: username,
+    weekday: daysShift
+
+
   })
 });
 
@@ -65,15 +73,23 @@ app.post("/waiters/:username", async function (req, res) {
   const username = req.params.username;
   const weekday = req.body.day;
   console.log(weekday)
-  const allDays = await waiterRoutes.daysAvailable(username, weekday)
+  await waiterRoutes.daysAvailable(username, weekday)
 
- await waiterRoutes.getDays()
-  res.render('waiter', { 
-  username, weekday
-   })
+  const daysShift = await waiterRoutes.getDays()
+  res.render('waiter', {
+    username: username,
+    weekday: daysShift
+ 
+  })
 
 })
 
+app.get("/days", async function (req, res){
+const weekdays = await waiterRoutes.getDays()
+res.render('shift', {
+  weekdays
+})
+})
 
 app.get("/back", async function (req, res) {
 
@@ -84,7 +100,7 @@ app.get("/back", async function (req, res) {
 });
 
 
-const PORT = process.env.PORT || 3018;
+const PORT = process.env.PORT || 3009;
 app.listen(PORT, function () {
   console.log('App started at port:', PORT);
 })

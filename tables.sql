@@ -11,7 +11,7 @@ create table days(
 create table shifts(
 	names_id int not null,
 	days_id int not null,
-	foreign key (names_id) references names(id)
+	foreign key (names_id) references names(id),
 	foreign key (days_id) references days (id)
 );
 
