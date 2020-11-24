@@ -1,9 +1,7 @@
-
  language: node_js
 
 env:
   - DATABASE_URL=postgresql://postgres@localhost:5432/my_waiter_test
-  
 
 node_js:  
   - 12
@@ -14,3 +12,5 @@ before_script:
 
 services:
   - postgresql
+
+  
