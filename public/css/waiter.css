@@ -36,24 +36,7 @@ body {
 	padding: 0.5em;
 	background-color: gold;
   }
-  
-  .msg {
-	margin-bottom: 0.75em;
-  }
  
-  .message {
-	padding: 0.5em;
-	border: 1px solid;
-	height: 2em;
-	width: 20em;
-	background-color: white;
-	color: black;
-	margin-bottom: 1em;
-	border-radius: 0.25em;
-  }
-  .counter{
-  	font-size : 2em;
-  }
   .info{
   	color: red;
   	margin-bottom: 1em;
