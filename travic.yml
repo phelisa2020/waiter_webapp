@@ -1,14 +1,16 @@
-#  language: node_js
 
-# env:
-#   - DATABASE_URL=postgresql://postgres@localhost:5432/my_registration_test
+ language: node_js
 
-# node_js:  
-#   - 12
+env:
+  - DATABASE_URL=postgresql://postgres@localhost:5432/my_waiter_test
+  
 
-# before_script:
-#   - psql -c 'create database my_registration_test;' -U postgres
-#   - psql -U postgres -d my_registration_test -a -f tables.sql
+node_js:  
+  - 12
 
-# services:
-#   - postgresql
+before_script:
+  - psql -c 'create database my_waiter_test;' -U postgres
+  - psql -U postgres -d my_waiter_test -a -f tables.sql
+
+services:
+  - postgresql
