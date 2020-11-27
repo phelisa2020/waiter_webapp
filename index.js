@@ -73,21 +73,26 @@ app.post("/waiters/:username", async function (req, res) {
   const username = req.params.username;
   const weekday = req.body.day;
   console.log(weekday)
-  await waiterRoutes.daysAvailable(username, weekday)
-
-  const daysShift = await waiterRoutes.getDays()
+   const daysShift = await waiterRoutes.getDays()
+  const join = await waiterRoutes.daysAvailable(username, weekday)
+  if (join) {
+    req.flash('success', 'successfully updated the shifts') 
+    } 
+ 
   res.render('waiter', {
     username: username,
-    weekday: daysShift
+    weekday: daysShift,
+    join
  
   })
 
 })
 
 app.get("/days", async function (req, res){
-const weekdays = await waiterRoutes.getDays()
+const weekdays = await waiterRoutes.admin();
+var days= await waiterRoutes.dayColor();
 res.render('shift', {
-  weekdays
+  weekdays,days
 })
 })
 

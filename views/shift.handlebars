@@ -19,28 +19,32 @@
         <h4 class="green">Enough Waiters</h4>
         <h4 class="orange">More Waiters are neede</h4>
         <h4 class="red">Too much waiters</h4>
+
+
+
         <button class="btn" type="submit">reset</button>
         {{!-- <form action="/days" method="POST"> --}}
         <table>
-            <thead>
+    
                 <tr>
                     {{#each weekdays}}
-                    <th>{{this.days}}</th>
-                    {{/each}}
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    {{#each weekdays}}
-                    <td>
-                        {{#each waiter}}
-                    <th>{{this.names}}</th>
-                    {{/each}}
-                    </td>
+                    <th style="color: {{this.color}};">{{this.days}}</th>
                     {{/each}}
                 </tr>
 
-            </tbody>
+   
+                <tr>
+                    {{#each weekdays}}
+                    <td style="color: {{this.color}}">
+                    {{this.names}}
+                    <ul>
+                        {{this.names}}
+                    </ul>
+                    {{/each}}
+                    </td>
+                   
+                </tr>
+</table>
             {{!-- </form> --}}
 
 

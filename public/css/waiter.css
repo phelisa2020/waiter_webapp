@@ -3,7 +3,9 @@ body {
 	color: black;
 	background-color: pink;
 	font-size: 27px;
-	
+	background-image: url(../images/img.jpg);
+ 
+}
 
   }
   .btn{
@@ -12,11 +14,7 @@ body {
 	  padding: 00.5em;
 	  background-color: gold;
   }
-  .img{
-	background-image: url(../images/img.jpeg);
-	height : 300px;
-	width: 300px;
-}
+  
 
 .container {
 	margin: auto;

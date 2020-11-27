@@ -15,6 +15,7 @@ create table shifts(
 	foreign key (days_id) references days (id)
 );
 
+
 insert into days(days) values ('Sunday');
 insert into days(days) values ('Monday');
 insert into days(days) values ('Tuesday');
