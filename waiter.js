@@ -2,11 +2,13 @@ module.exports = function waiter(pool) {
 
 
     async function daysAvailable(waiter, days) {
+         await waiters(waiter)
         const waiterId = await getWaitersNames(waiter);
 
         for (var i = 0; i < days.length; i++) {
             
             const daysId = await getWaitersDays(days[i])
+            console.log(waiterId, 'kjhgf'); // {id:4}
 
             const SQLinsert = "insert into shifts(names_id, days_id) values ($1, $2)"
             await pool.query(SQLinsert, [waiterId.id, daysId.id]);
@@ -35,7 +37,7 @@ module.exports = function waiter(pool) {
         return result.rows
     }
 
-    async function waiter(name) {
+    async function waiters(name) {
         var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
         const SQLcheck = "select id from names where names = $1";
         const results = await pool.query(SQLcheck, [waiters]);
@@ -49,8 +51,9 @@ module.exports = function waiter(pool) {
 
 
     async function getWaitersNames(name) {
+        var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
         const SQLcheck = "select id from names where names = $1";
-        const results = await pool.query(SQLcheck, [name])
+        const results = await pool.query(SQLcheck, [waiters])
         return results.rows[0]
     }
 
@@ -122,7 +125,7 @@ module.exports = function waiter(pool) {
 
     return {
         daysAvailable,
-        waiter,
+        waiters,
         getDays,
         getWaitersNames,
         getWaitersDays,

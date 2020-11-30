@@ -56,7 +56,7 @@ app.get('/addFlash', function (req, res) {
 
 app.get("/waiters/:username", async function (req, res) {
   const username = req.params.username;
-  const weekday = await waiterRoutes.waiter(username)
+  const weekday = await waiterRoutes.waiters(username)
   //console.log(weekday)
   var daysShift =await waiterRoutes.getDays()
   res.render('waiter', {
@@ -105,7 +105,8 @@ app.get("/back", async function (req, res) {
 });
 
 
-const PORT = process.env.PORT || 3009;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, function () {
   console.log('App started at port:', PORT);
 })
+

@@ -23,4 +23,3 @@ insert into days(days) values ('Wednesday');
 insert into days(days) values ('Thursday');
 insert into days(days) values ('Friday');
 insert into days(days) values ('Saturday');
-
