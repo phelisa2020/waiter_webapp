@@ -27,22 +27,22 @@
         <table>
     
                 <tr>
-                    {{#each weekdays}}
+                    {{#each days}}
                     <th style="color: {{this.color}};">{{this.days}}</th>
                     {{/each}}
                 </tr>
 
    
                 <tr>
-                    {{#each weekdays}}
+                    {{#each days}}
                     <td style="color: {{this.color}}">
-                    {{this.names}}
+                    {{#each this.names}}
                     <ul>
-                        {{this.names}}
+                        <li>{{this.names}}</li>
                     </ul>
                     {{/each}}
                     </td>
-                   
+                   {{/each}}
                 </tr>
 </table>
             {{!-- </form> --}}

@@ -39,14 +39,18 @@ module.exports = function waiter(pool) {
 
     async function waiters(name) {
         var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
-        const SQLcheck = "select id from names where names = $1";
-        const results = await pool.query(SQLcheck, [waiters]);
+        var waiter = await pool.query('select * from names where names = $1', [waiters])
 
-        if (results.rowCount === 0) {
+        if (waiter.rowCount === 0) {
+
             const SQLinsert = "insert into names(names) values ($1)"
             await pool.query(SQLinsert, [waiters])
             return "Waiter added successfully"
         }
+        var  SQLcheck =  await pool.query("select id from names where names = $1", [waiters]) 
+        return SQLcheck.rows[0].id
+        console.log(SQLcheck.rows.id)
+
     }
 
 
@@ -80,10 +84,11 @@ module.exports = function waiter(pool) {
 
             // const colorDay = await pool.query('select days from days')
             const shift = await admin()
+            const days =  await getDays()
             console.log(shift);
             // const rows = colorDay.rows
 
-            await rows.forEach(async (day) => {
+            days.forEach(async (day) => {
                 day.names = []
                 // day.color = ''
 
@@ -92,7 +97,7 @@ module.exports = function waiter(pool) {
                     if (day.days === waiter.days) {
 
                         day.names.push(waiter);
-
+                            console.log(day.names)
                     }
 
                     if (day.names.length === 3) {
@@ -114,9 +119,9 @@ module.exports = function waiter(pool) {
 
             })
 
-            console.log(rows);
+            console.log(days);
 
-            return rows;
+            return days;
 
         } catch (error) {
         }
