@@ -12,11 +12,12 @@ body {
 }
 .error{    
     color: red;
-    text-align: center;
+	
 }
 .pass{
-    color: green;
-    text-align: center;
+	color: green;
+	background-color: orange;
+    
 }
 
   
