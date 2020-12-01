@@ -38,15 +38,13 @@ app.use(session({
 // initialise the flash middleware
 app.use(flash());
 
+
 app.get('/', function (req, res) {
 
   req.flash('info', 'Welcome');
-  res.render('index', {
-    title: 'Home',
-    
-
-  })
+  res.render('index')
 });
+
 app.get('/addFlash', function (req, res) {
   req.flash('success', 'Flash Message Added');
   res.redirect('/');
