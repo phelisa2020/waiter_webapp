@@ -1,8 +1,11 @@
 module.exports = function waiter(pool) {
 
 
+    
+    
     async function daysAvailable(waiter, days) {
          await waiters(waiter)
+
         const waiterId = await getWaitersNames(waiter);
 
         for (var i = 0; i < days.length; i++) {

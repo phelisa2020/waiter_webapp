@@ -1,3 +1,5 @@
+
+ 
 const assert = require('assert');
 const factoryWaiter = require('../waiter');
 let pg = require("pg");
@@ -12,7 +14,7 @@ describe('The basic database web app', function () {
     beforeEach(async function () {
         // clean the tables before each test run
       
-            await pool.query(`delete from names`);
+            await pool.query(`delete from shifts`);
 
     });
     
@@ -66,6 +68,8 @@ describe('The basic database web app', function () {
 
   })
 
+  
+
   it("Should be able to select 5 days which is M, T, W, T, F of Some", async function () {
     let waiter = factoryWaiter(pool);
     await waiter.daysAvailable('aza', ['Wednesday', 'Thursday', 'Friday',]);
@@ -100,10 +104,15 @@ describe('The basic database web app', function () {
     )
 
   })
+
+  it("tests if the database clears one dataset.", async function () {
+let waiter = factoryWaiter(pool);
+await waiter.daysAvailable('Jenna', ['Friday', 'Monday', 'Tuesday', 'Wednesday']);
+await waiter.clear();
+assert.deepStrictEqual(await waiter.admin(), []);
+})
  
   
 })
-
-
 
 

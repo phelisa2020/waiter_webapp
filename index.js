@@ -39,12 +39,11 @@ app.use(session({
 app.use(flash());
 
 app.get('/', function (req, res) {
-  const username = req.params.username;
 
   req.flash('info', 'Welcome');
   res.render('index', {
     title: 'Home',
-    username: username,
+    
 
   })
 });
@@ -73,16 +72,19 @@ app.post("/waiters/:username", async function (req, res) {
   const username = req.params.username;
   const weekday = req.body.day;
   console.log(weekday)
+  if (weekday === undefined) {
+    req.flash('error', 'Oops please select days')
+} else {
+    req.flash('pass', "days are successfully added")
+    await waiterRoutes.daysAvailable(username, weekday)}
    const daysShift = await waiterRoutes.getDays()
-  const join = await waiterRoutes.daysAvailable(username, weekday)
-  if (join) {
-    req.flash('success', 'successfully updated the shifts') 
-    } 
+  
+  
  
   res.render('waiter', {
     username: username,
-    weekday: daysShift,
-    join
+    weekday: daysShift
+  
  
   })
 
@@ -96,11 +98,11 @@ res.render('shift', {
 })
 })
 
-app.get("/back", async function (req, res) {
+app.get("/clear", async function (req, res) {
 
-  const weekday = await waiterRoutes.daysAvailable()
-  res.render('waiters', {
-    weekday: weekday
+  const weekday = await waiterRoutes.clear()
+  res.render('shift', {
+  weekday
   })
 });
 

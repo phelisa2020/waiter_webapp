@@ -1,21 +1,43 @@
 body {
 	font-family: arial;
 	color: black;
-	background-color: pink;
-	font-size: 27px;
+	
+	font-size: 25px;
 	background-image: url(../images/img.jpg);
  
 }
+.container{
+    text-align: center;
+}
+.error{    
+    color: red;
+    text-align: center;
+}
+.pass{
+    color: green;
+    text-align: center;
+}
 
-  }
+  
   .btn{
 	  margin: 00.5em;
 	  width: 10em;
 	  padding: 00.5em;
 	  background-color: gold;
   }
-  
+  .green{
+	  background-color: green;
+	  font-size: 20px;
 
+  }
+  .red{
+	font-size: 20px;
+	background-color: red;
+}
+.orange{
+	font-size: 20px;
+	background-color: orange;
+}
 .container {
 	margin: auto;
 	width: 80%;
