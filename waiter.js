@@ -1,44 +1,42 @@
 module.exports = function waiter(pool) {
 
 
-    
-    
+
+
     async function daysAvailable(waiter, days) {
-         await waiters(waiter)
+        await waiters(waiter)
 
         const waiterId = await getWaitersNames(waiter);
 
-        for (var i = 0; i < days.length; i++) {
-            
-            const daysId = await getWaitersDays(days[i])
-            console.log(waiterId, 'kjhgf'); // {id:4}
+        if (waiterId) {
+
+            const x = await pool.query("delete from shifts where names_id=$1", [waiterId])
+
+        }
+
+        const arrayDay = Array.isArray(days) ? days : [days]
+        for (var i = 0; i < arrayDay.length; i++) {
+
+            const daysId = await getWaitersDays(arrayDay[i])
+            // console.log(waiterId, 'kjhgf'); // {id:4}
 
             const SQLinsert = "insert into shifts(names_id, days_id) values ($1, $2)"
-            await pool.query(SQLinsert, [waiterId.id, daysId.id]);
+            await pool.query(SQLinsert, [waiterId, daysId.id]);
         }
 
     }
 
 
 
-    // let daysId = async function(ids) {
-
-    //     let ids = "select id from days where days = $1"
-    //     // let results = await pool.query([ids];
-    //     console.log(results.rows[0].id);
-
-    //     return results.rows[0].id;
-
-    //     }
-
-
     async function admin() {
 
         const result = await pool.query('select days, names from shifts join days on shifts.days_id = days.id join names on shifts.names_id = names.id ORDER BY days.id ASC')
-        console.log(result.rows);
+        // console.log(result.rows);
 
         return result.rows
     }
+
+    
 
     async function waiters(name) {
         var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
@@ -50,9 +48,9 @@ module.exports = function waiter(pool) {
             await pool.query(SQLinsert, [waiters])
             return "Waiter added successfully"
         }
-        var  SQLcheck =  await pool.query("select id from names where names = $1", [waiters]) 
+        var SQLcheck = await pool.query("select id from names where names = $1", [waiters])
         return SQLcheck.rows[0].id
-        console.log(SQLcheck.rows.id)
+        // console.log(SQLcheck.rows.id)
 
     }
 
@@ -61,7 +59,7 @@ module.exports = function waiter(pool) {
         var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()
         const SQLcheck = "select id from names where names = $1";
         const results = await pool.query(SQLcheck, [waiters])
-        return results.rows[0]
+        return results.rows[0].id
     }
 
     async function getWaitersDays(day) {
@@ -87,8 +85,8 @@ module.exports = function waiter(pool) {
 
             // const colorDay = await pool.query('select days from days')
             const shift = await admin()
-            const days =  await getDays()
-            console.log(shift);
+            const days = await getDays()
+            // console.log(shift);
             // const rows = colorDay.rows
 
             days.forEach(async (day) => {
@@ -100,7 +98,7 @@ module.exports = function waiter(pool) {
                     if (day.days === waiter.days) {
 
                         day.names.push(waiter);
-                            console.log(day.names)
+                        // console.log(day.names)
                     }
 
                     if (day.names.length === 3) {
@@ -122,7 +120,7 @@ module.exports = function waiter(pool) {
 
             })
 
-            console.log(days);
+            // console.log(days);
 
             return days;
 

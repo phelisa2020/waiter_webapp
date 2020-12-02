@@ -21,11 +21,10 @@
 
         {{#each weekday}}
         {{!-- looping my days from the database --}}
-        <input type='checkbox' name='day' class='days' value="{{this.days}}">
+        <input type='checkbox' name='day' class='days' {{state}} value="{{this.days}}">
         <span>{{this.days}}</span>
 
         {{/each}}
-         <input type="submit" class="btn" value="Update Days">
 
          <div class="error" style="color: red;">
         <h3>{{messages.error}}</h3>
@@ -34,8 +33,11 @@
     <div class="pass" style="color: green;">
         <h3>{{messages.pass}}</h3>
     </div>
+             <input type="submit" class="btn" value="Update Days">
+
     </form>
-    
-    <button type="button"><a href="/">back</a></button>
+
+            <button type="button"><a href="/">back</a></button>
+
 
 </div>
