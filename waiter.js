@@ -25,9 +25,7 @@ module.exports = function waiter(pool) {
         }
 
     }
-
-
-
+  
     async function admin() {
 
         const result = await pool.query('select days, names from shifts join days on shifts.days_id = days.id join names on shifts.names_id = names.id ORDER BY days.id ASC')
@@ -35,8 +33,6 @@ module.exports = function waiter(pool) {
 
         return result.rows
     }
-
-    
 
     async function waiters(name) {
         var waiters = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()

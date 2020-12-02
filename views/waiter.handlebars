@@ -21,7 +21,7 @@
 
         {{#each weekday}}
         {{!-- looping my days from the database --}}
-        <input type='checkbox' name='day' class='days' {{state}} value="{{this.days}}">
+        <input type='checkbox' name='day' class='days' value="{{this.days}}"{{this.states}}>
         <span>{{this.days}}</span>
 
         {{/each}}
